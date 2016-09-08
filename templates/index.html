@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">    
+    </head>
+    <body>
+    <h1>@simonuvarov</h1>
+    <div>
+        {% for page in pages %}
+            <a href="http://localhost:5000/{{ page.url }}">{{ page.title }}</a>
+        {% endfor %}
+    </div>
+
+    <div>
+        {% for post in posts %}
+            <a href="http://localhost:5000/{{ post.url }}">{{ post.title }}</a><br>
+        {% endfor %}
+    <div>    
+    </body>
+</html>
