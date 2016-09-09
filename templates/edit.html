@@ -1,9 +1,14 @@
 <html>
     <head>
+        {% if session.logged_in %}
         <title>Edit post</title>
+        {% else %}
+        <title>Not logged in</title>
+        {% endif %}
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">    
     </head>
     <body>
+    {% if session.logged_in %}
         <div>
             <form action="/{{ post.url }}/save" method="post">
                 <label for="title">Title</label>
@@ -14,5 +19,10 @@
             </form>
             <a href="/{{ post.url }}/delete">Delete</a>
         </div>
+    {% else %}
+    <div>
+        <p>Not logged in!</p>
+    </div>
+    {% endif %}
     </body>
 </html>
